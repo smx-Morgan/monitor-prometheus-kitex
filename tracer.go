@@ -37,7 +37,7 @@ func NewClientTracer(addr, path string, options ...Option) stats.Tracer {
 	p := promprovider.NewPromProvider(
 		promprovider.WithRegistry(cfg.registry),
 		promprovider.WithHistogramBuckets(cfg.buckets),
-		promprovider.WithServiceName("server"),
+		promprovider.WithServiceName("client"),
 		promprovider.WithRPCServer(),
 	)
 	// prom provider not support serveMux
