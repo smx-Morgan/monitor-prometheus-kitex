@@ -1,6 +1,6 @@
 module github.com/kitex-contrib/monitor-prometheus/example
 
-go 1.21.12
+go 1.21
 
 require (
 	github.com/cloudwego/kitex v0.11.3
