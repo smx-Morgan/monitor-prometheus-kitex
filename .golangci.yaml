@@ -1,5 +1,6 @@
 # Options for analysis running.
 run:
+  timeout: 5m
   # include `vendor` `third_party` `testdata` `examples` `Godeps` `builtin`
   skip-dirs-use-default: true
 # output configuration options
