@@ -11,7 +11,7 @@ jobs:
       - name: Set up Go
         uses: actions/setup-go@v3
         with:
-          go-version: 1.18
+          go-version: 1.21
 
       - uses: actions/cache@v3
         with:
@@ -25,10 +25,11 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Lint
-        run: |
-          test -z "$(gofmt -s -l .)"
-          go vet -stdmethods=false $(go list ./...)
+      - name: Golangci Lint
+        # https://golangci-lint.run/
+        uses: golangci/golangci-lint-action@v3
+        with:
+          version: latest
 
       - name: Unit Test
         run: go test -v -race -covermode=atomic -coverprofile=coverage.out ./...
