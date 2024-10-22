@@ -26,7 +26,6 @@ import (
 
 // NewClientTracer provide tracer for client call, addr and path is the scrape_configs for prometheus server.
 func NewClientTracer(addr, path string, options ...Option) stats.Tracer {
-
 	cfg := defaultConfig()
 
 	for _, opts := range options {
@@ -41,7 +40,7 @@ func NewClientTracer(addr, path string, options ...Option) stats.Tracer {
 		promprovider.WithServiceName("server"),
 		promprovider.WithRPCServer(),
 	)
-	//prom provider not support serveMux
+	// prom provider not support serveMux
 	if !cfg.disableServer {
 		p.Serve(addr, path)
 	}
